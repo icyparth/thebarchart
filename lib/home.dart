@@ -40,8 +40,8 @@ class _HomePageState extends State<HomePage> {
     Map<String, Map<String, dynamic>> stateData = {};
 
     for (int i = 1; i < rows.length; i++) {
-      String state = rows[i][0].toString().trim();
-      String category = rows[i][1].toString().trim();
+      String state = rows[i][0].toString();
+      String category = rows[i][1].toString();
 
       if (!selectedStates.contains(state)) {
         continue;
@@ -52,22 +52,16 @@ class _HomePageState extends State<HomePage> {
       }
 
       if (category == 'Area') {
-        stateData[state]!['treeArea'] = double.parse(
-          rows[i][2].toString().trim(),
-        );
+        stateData[state]!['treeArea'] = double.parse(rows[i][2].toString());
 
-        stateData[state]!['forestArea'] = double.parse(
-          rows[i][3].toString().trim(),
-        );
+        stateData[state]!['forestArea'] = double.parse(rows[i][3].toString());
       }
 
       if (category == 'Percentage of Geographical area') {
-        stateData[state]!['treePercent'] = double.parse(
-          rows[i][2].toString().trim(),
-        );
+        stateData[state]!['treePercent'] = double.parse(rows[i][2].toString());
 
         stateData[state]!['forestPercent'] = double.parse(
-          rows[i][3].toString().trim(),
+          rows[i][3].toString(),
         );
       }
     }
